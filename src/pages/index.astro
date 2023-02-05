@@ -30,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
      <p class=" flex justify-center p-5 mt-10 text-5xl font-bold border border-2 border-black " id="metroCountDown"> </p>
  
 
-     <div class="flex justify-center mt-10"> FROM DESTINATION </div>
+     <div class="flex justify-center mt-10"> YOUR LOCATION </div>
    <div class=" flex justify-center">
     <div class="dropdown1 mt-5 border border-black">
      
@@ -99,7 +99,7 @@ import Layout from '../layouts/Layout.astro';
         <option value="Roztyly" id="#Roztyly" class="option-dropdown1">Roztyly</option>
         <option value="Chodov" id="#Chodov" class="option-dropdown1">Chodov</option>
         <option value="Opatov" id="#Opatov" class="option-dropdown1">Opatov</option>
-        <option value="Háje" id="#Háje" class="option-dropdown1">Háje</option>
+        <option value="Háje" id="#Haje" class="option-dropdown1">Háje</option>
          
        
      </div>
@@ -415,13 +415,13 @@ function finalDirection() {
     }
     if (array.stations.includes(selectedDirection)) {
         selector2 = array;
-    }else {"error idiot"}
+    }
 });
     
 
 
 if (selectedStation === "Jiřího z Poděbrad" || selectedDirection === "Jiřího z Poděbrad" ) {
-        console.log("Jiřího z Poděbrad is closed")
+  document.getElementById("selected-option-text").innerHTML = "Jiřího z Poděbrad is closed" 
 }else {
 
 if (selector === selector2) {
@@ -479,16 +479,99 @@ else {
       resultDirection = "Háje"
     
 
-    } else if (selectedStation === "Můstek") {
-      console.log("xxx")
+    } else if ((selectedStation === "Můstek") && (selectedDirection === "Národní třída" || selectedDirection === "Karlovo náměstí" || selectedDirection === "Anděl" || 
+    selectedDirection === "Smíchovské nádraží" || selectedDirection === "Radlická" || 
+    selectedDirection === "Jinonice" || selectedDirection === "Nové Butovice" || selectedDirection === "Hůrka" || selectedDirection === "Lužiny" || 
+    selectedDirection === "Luka" || selectedDirection === "Stodůlky" || selectedDirection === "Zličín")) {
+      
+      resultDirection = "Zličín"
     
-    }else if (selectedStation === "Muzeum"){
-      console.log("xxx")
-   
-    }else if(selectedStation === "Florenc"){
-      console.log("xxx")
-    }
-}}
+    } else if ((selectedStation === "Můstek") && (selectedDirection === "Náměstí Republiky" || selectedDirection === "Florenc" || selectedDirection === "Křižíkova" || 
+    selectedDirection === "Invalidovna" || selectedDirection === "Palmovka" || 
+    selectedDirection === "Českomoravská" || selectedDirection === "Vysočanská" || selectedDirection === "Kolbenova" || selectedDirection === "Hloubětín" || 
+    selectedDirection === "Rajská zahrada" || selectedDirection === "Černý Most")) {
+      
+      resultDirection = "Černý Most"
+
+    } else if ((selectedStation === "Můstek") && ( 
+    selectedDirection ===  "Muzeum" || selectedDirection === "Náměstí Míru" || 
+    selectedDirection === "Jiřího z Poděbrad" || selectedDirection === "Flora" || selectedDirection === "Želivského" || selectedDirection === "Strašnická" || 
+    selectedDirection === "Skalka" || selectedDirection === "Depo Hostivař")) {
+      
+      resultDirection = "Depo Hostivař"
+
+    } else if ((selectedStation === "Můstek") && ( 
+    selectedDirection === "Staroměstská" || selectedDirection === "Malostranská" || 
+    selectedDirection === "Hradčanská" || selectedDirection === "Dejvická" || selectedDirection === "Bořislavka" || selectedDirection === "Nádraží Veleslavín" || 
+    selectedDirection === "Petřiny" || selectedDirection === "Nemocnice Motol")) {
+      
+      resultDirection = "Nemocnice Motol"
+
+    } else if (selectedStation === "Můstek" && selector2 === LineC){
+      resultDirection = "Depo Hostivař"
+    
+    }else if ((selectedStation === "Muzeum") && ( selectedDirection === "Můstek" || selectedDirection === "Staroměstská" || selectedDirection === "Malostranská" || 
+    selectedDirection === "Hradčanská" || selectedDirection === "Dejvická" || selectedDirection === "Bořislavka" || selectedDirection === "Nádraží Veleslavín" || 
+    selectedDirection === "Petřiny" || selectedDirection === "Nemocnice Motol")) {
+      
+      resultDirection = "Nemocnice Motol"
+
+    } else if ((selectedStation === "Muzeum") && ( 
+    selectedDirection === "Náměstí Míru" || 
+    selectedDirection === "Jiřího z Poděbrad" || selectedDirection === "Flora" || selectedDirection === "Želivského" || selectedDirection === "Strašnická" || 
+    selectedDirection === "Skalka" || selectedDirection === "Depo Hostivař")) {
+      
+      resultDirection = "Depo Hostivař"
+
+    } else if ((selectedStation === "Muzeum") && ( selectedDirection === "Florenc" || selectedDirection === "Hlavní nádraží" ||
+    selectedDirection === "Vltavská" || 
+    selectedDirection === "Nádraží Holešovice" || selectedDirection === "Kobylisy" || selectedDirection === "Ládví" || selectedDirection === "Střížkov" || 
+    selectedDirection === "Prosek" || selectedDirection === "Letňany")) {
+            
+      resultDirection = "Letňany"
+      
+    } else if ((selectedStation === "Muzeum") && ( selectedDirection === "I. P. Pavlova" ||
+    selectedDirection === "Pankrác" || selectedDirection === "Pražského povstání" || selectedDirection === "Vyšehrad" ||
+    selectedDirection === "Budějovická" || selectedDirection === "Kačerov" || selectedDirection === "Roztyly" || selectedDirection === "Chodov" || 
+    selectedDirection === "Opatov" || selectedDirection === "Háje")) {
+      
+      resultDirection = "Háje"
+
+    } else if (selectedStation === "Muzeum" && selector2 === LineB){
+      resultDirection = "Nemocnice Motol"
+    
+    }else if((selectedStation === "Florenc") && ( selectedDirection === "Vltavská" ||
+    selectedDirection === "Nádraží Holešovice" || selectedDirection === "Kobylisy" || selectedDirection === "Ládví" || 
+    selectedDirection === "Střížkov" || selectedDirection === "Prosek" || selectedDirection === "Letňany")){
+      
+      resultDirection = "Letňany"
+    
+    }else if((selectedStation === "Florenc") && (selectedDirection === "Hlavní nádraží" || selectedDirection === "Muzeum" || 
+    selectedDirection === "I. P. Pavlova" ||
+    selectedDirection === "Vyšehrad" || selectedDirection === "Pražského povstání" || selectedDirection === "Pankrác" ||
+    selectedDirection === "Budějovická" || selectedDirection === "Kačerov" || selectedDirection === "Roztyly" || 
+    selectedDirection === "Chodov" || selectedDirection === "Opatov" || selectedDirection === "Háje")){
+
+      resultDirection = "Háje"
+    
+    }else if ((selectedStation === "Florenc") && (selectedDirection === "Národní třída" || selectedDirection === "Můstek" || 
+    selectedDirection === "Náměstí Republiky" || selectedDirection === "Karlovo náměstí" || selectedDirection === "Anděl" ||   
+    selectedDirection === "Smíchovské nádraží" || selectedDirection === "Radlická" || 
+    selectedDirection === "Jinonice" || selectedDirection === "Nové Butovice" || selectedDirection === "Hůrka" || selectedDirection === "Lužiny" || 
+    selectedDirection === "Luka" || selectedDirection === "Stodůlky" || selectedDirection === "Zličín")) {
+      
+      resultDirection = "Zličín"
+
+    }else if ((selectedStation === "Florenc") && ( selectedDirection === "Křižíkova" || selectedDirection === "Invalidovna" ||
+     selectedDirection === "Palmovka" || selectedDirection === "Českomoravská" || selectedDirection === "Vysočanská" || 
+     selectedDirection === "Kolbenova" || selectedDirection === "Hloubětín" || 
+    selectedDirection === "Rajská zahrada" || selectedDirection === "Černý Most")) {
+      
+      resultDirection = "Černý Most"
+
+    }else if (selectedStation === "Florenc" && selector2 === LineA){
+      resultDirection = "Zličín"
+}}}
 }return resultDirection;
 }
 
@@ -499,10 +582,10 @@ else {
  function filterFunction1() {
      var input, filter, option, i;
      input = document.getElementById("myInput1");
-     filter = input.value.toUpperCase();
+     filter = input.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
      option = document.getElementsByClassName("option-dropdown1");
      for (i = 0; i < option.length; i++) {
-         if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+         if (option[i].innerHTML.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().indexOf(filter) > -1) {
              option[i].style.display = "";
          } else {
              option[i].style.display = "none";
@@ -513,10 +596,10 @@ else {
  function filterFunction2() {
      var input, filter, option, i;
      input = document.getElementById("myInput2");
-     filter = input.value.toUpperCase();
+     filter = input.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
      option = document.getElementsByClassName("option-dropdown2");
      for (i = 0; i < option.length; i++) {
-         if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+         if (option[i].innerHTML.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().indexOf(filter) > -1) {
              option[i].style.display = "";
          } else {
              option[i].style.display = "none";
